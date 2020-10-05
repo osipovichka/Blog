@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BlogController {
 
     @Autowired
-    private  PostRepository postRepository;
+    private PostRepository postRepository;
 
     @GetMapping("/blog")
     public String blogMain(Model model){
