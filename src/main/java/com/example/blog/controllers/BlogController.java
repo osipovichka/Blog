@@ -35,10 +35,10 @@ public class BlogController {
     public String blogPostAdd(
             @RequestParam String title,
             @RequestParam String anons,
-            @RequestParam String full_text,
+            @RequestParam String fullText,
             Model model
     ){
-        Post post = new Post(title, anons, full_text);
+        Post post = new Post(title, anons, fullText);
         postRepository.save(post);
         return "redirect:/blog";
     }
@@ -76,14 +76,14 @@ public class BlogController {
     public String blogPostUpdate(
             @RequestParam String title,
             @RequestParam String anons,
-            @RequestParam String full_text,
+            @RequestParam String fullText,
             @PathVariable(value = "id") long id,
             Model model
     ){
         Post post = postRepository.findById(id).orElseThrow();
         post.setTitle(title);
         post.setAnons(anons);
-        post.setFull_text(full_text);
+        post.setFullText(fullText);
         postRepository.save(post);
 
         return "redirect:/blog";
