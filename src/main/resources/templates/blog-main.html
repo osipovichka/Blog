@@ -12,7 +12,7 @@
         <div th:each="el : ${posts}" class="alert alert-info mt-2">
             <h3 th:text="${el.title}"></h3>
             <p th:text="${el.anons}"></p>
-            <a th:href="'/blog/' + ${el.id}">Детальнее</a>
+            <a th:href="'/blog/' + ${el.id}" class="btn btn-warning">Детальнее</a>
         </div>
     </div>
 <footer th:insert="blogs/footer :: footer"></footer>

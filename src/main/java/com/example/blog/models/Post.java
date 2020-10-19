@@ -1,68 +1,79 @@
 package com.example.blog.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Entity
+@Data
+@NoArgsConstructor
+@Table(name = "post")
 public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
-
+  
+    @Column(name = "title", nullable = false)
     private String title;
+
+    @Column(name = "anons", nullable = false)
     private  String anons;
-    private String full_text;
+
+    @Column(name = "full_text", nullable = false)
+    private String fullText;
+
+    @Column(name = "views")
     private int views;
 
-    public Post() {
-    }
-
-    public Post(String title, String anons, String full_text) {
+    public Post(String title, String anons, String fullText) {
         this.title = title;
         this.anons = anons;
-        this.full_text = full_text;
+        this.fullText = fullText;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAnons() {
-        return anons;
-    }
-
-    public void setAnons(String anons) {
-        this.anons = anons;
-    }
-
-    public String getFull_text() {
-        return full_text;
-    }
-
-    public void setFull_text(String full_text) {
-        this.full_text = full_text;
-    }
-
-    public int getViews() {
-        return views;
-    }
-
-    public void setViews(int views) {
-        this.views = views;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getTitle() {
+//        return title;
+//    }
+//
+//    public void setTitle(String title) {
+//        this.title = title;
+//    }
+//
+//    public String getAnons() {
+//        return anons;
+//    }
+//
+//    public void setAnons(String anons) {
+//        this.anons = anons;
+//    }
+//
+//    public String getFullText() {
+//        return fullText;
+//    }
+//
+//    public void setFullText(String fullText) {
+//        this.fullText = fullText;
+//    }
+//
+//    public int getViews() {
+//        return views;
+//    }
+//
+//    public void setViews(int views) {
+//        this.views = views;
+//    }
+//
+//    public Post() {
+//    }
 }
