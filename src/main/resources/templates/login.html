@@ -16,7 +16,7 @@
 <header th:insert="blogs/header :: header"></header>
 <div class="container mt-5 mb-5">
     <h1>Авторизация</h1>
-    <form action="/login" method="post">
+    <form action="/login" method="get">
         <input type="email" name="email" placeholder="Введите логин" class="form-control"/><br>
         <input type="password" name="password" placeholder="Введите пароль" class="form-control"/><br>
         <button type="submit" class="btn btn-success">Войти</button><br>
