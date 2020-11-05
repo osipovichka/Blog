@@ -27,7 +27,7 @@ public class BlogController {
     }
 
     @GetMapping("/blog/add")
-    public String blogMainAdd(Model model){
+    public String blogMainAdd(){
         return "blog-add";
     }
 
@@ -35,8 +35,7 @@ public class BlogController {
     public String blogPostAdd(
             @RequestParam String title,
             @RequestParam String anons,
-            @RequestParam String fullText,
-            Model model
+            @RequestParam String fullText
     ){
         Post post = new Post(title, anons, fullText);
         postRepository.save(post);
@@ -77,8 +76,7 @@ public class BlogController {
             @RequestParam String title,
             @RequestParam String anons,
             @RequestParam String fullText,
-            @PathVariable(value = "id") long id,
-            Model model
+            @PathVariable(value = "id") long id
     ){
         Post post = postRepository.findById(id).orElseThrow();
         post.setTitle(title);
@@ -91,8 +89,7 @@ public class BlogController {
 
     @PostMapping("/blog/{id}/remove")
     public String blogPostDelete(
-            @PathVariable(value = "id") long id,
-            Model model
+            @PathVariable(value = "id") long id
     ){
         Post post = postRepository.findById(id).orElseThrow();
         postRepository.delete(post);
